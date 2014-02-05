@@ -1,0 +1,40 @@
+==Prozeduren==
+
+;backup_drupal.sh
+:backup drupal installation and database
+;reset_drupal.sh
+:Reset drupal instance to prior code and db state
+;mk_drupal_base_inst.sh
+:creates a drupal instance from a default installations saved filesystem and db
+;update_drupal_inst.sh
+:Update a drupal instance from git
+;mk_labs_testinst.sh
+:creates a NEW development/test instance for cms drupal application from site alias (directory must be empty, database gets created/OVERRIDDEN)
+;recreate_drupal_dev.sh
+:copies (OVERRIDES) the drupal filesystem and database from the @prod to the @dev instance (uses drush aliases)
+
+==Konfiguration Mehrsprachigkeit==
+
+für den Entity Translation Ansatz:
+
+* Module (gem. [http://www.lullabot.com/articles/localized-and-multi-lingual-content-drupal-7 Anleitung]) runterladen und installieren
+* Node und Taxonomy in Entity Translation Config aktivieren
+* add permission "Translate entities of type Taxonomy term"
+* Beim content type
+** multilingual "Enabled, with entity translation" aktivieren
+** in Manage Fields bei "title" replace anklicken
+* bei taxonomy xyz
+** magage fields, replace name and description
+
+===Benutzersprache===
+
+default auf (angezeigt) "Englisch" stehen lassen reicht nicht, man muss die Sprache einmal explizit speichern
+
+==div==
+
+===Reset Admin Password===
+
+  drush user-password username --password="new_password"
+
+nach [http://drupal.org/node/1023428 Recovering your Drupal 7 administrator account password]
+

@@ -1,0 +1,191 @@
+Beispiel ZBW Labs. S. a. [[Git]]
+
+==Drupal Installation==
+
+===Drupal Core===
+
+* für Projekt lokales Git-Repository als Clone von Drupal Core anlegen
+  cd /opt
+  git clone http://git.drupal.org/project/drupal.git labs
+* verfügbare Tags anzeigen
+  git tag
+* aktuellste Version aktivieren
+  git checkout 7.9
+* das Projekt-Repository als zentrales setzen
+  git remote rename origin drupal
+  remote add origin ssh://nbt@ite-git/srv/git/labs.git
+* Projekt-Branch anlegen
+  checkout -b labs
+* in das zentrale Projekt-Repository laden
+  git push origin labs
+* Name+Email setzen
+  git config --global user.name "Joachim Neubert"
+  git config --global user.email "j.neubert@zbw.eu"
+* ggf. farbige Anzeige setzen
+  git config --global  color.ui "auto"
+
+===drush===
+
+* mit Git installieren
+  git clone --branch 7.x-4.x http://git.drupal.org/project/drush.git
+  cd /usr/local/bin
+  ln -s /opt/drush/drush
+
+==Vendor Update Drupal Core==
+
+  git checkout labs   # um sicherzugehen, dass ich auf dem Masterbranch bin
+  git fetch -v drupal
+  git tag   # Drupal-Versionstag identifizieren, z.B. "7.12"
+  git merge --log --no-ff 7.12  # erzwingt Commit mit generierter Message
+  drush updatedb
+
+  # Update localization
+  drush l10n-update-refresh
+  drush l10n-update
+
+  # zurück ins Repository
+  git push
+  git push --tags
+
+==Vendor Update Drupal Modules==
+
+* Überprüfen, dass der Core auf Stand ist!
+* Überprüfen, dass es keine nicht commiteten Dateien gibt.
+* Patch-Dateien ggf. sichern!
+
+  drush up    # aktualisiert core + contrib, incl. updatedb
+  git commit  # Infos aus update (Versionen und updatedb Infos) kann verwendet werden!
+  git push
+
+==Update von separaten (Modul-) Repositories (zenlabs)==
+
+===Aktualisierung zenlabs===
+
+ # update zen (currently dev release used!)
+ drush up zen-7.x-5.x-dev 
+ 
+ # prepare old custom theme directory (let git point to the correct branch)
+ cd sites/all/themes/custom/zenlabs
+ git co 7.x-5.x-STARTERKIT
+ 
+ # move directory out of the way, because drush does not overwrite
+ # its contents correctly
+ cd ..
+ mv -f zenlabs /tmp/zenlabs.bak
+ 
+ # initialize new custom theme directory
+ drush zen --path=sites/all/themes/custom --without-rtl "Zen Sub-theme Labs" zenlabs
+ 
+ # hack to put it under git control
+ cp -pr /tmp/zenlabs.bak/.git zenlabs
+ 
+ # check in
+ git ci -am "New zen subtheme initialized from STARTERKIT 7.x-5.1+111-dev"
+ 
+ # back to main branch
+ git checkout 7.x-5.x
+ # merge STARTERKIT changes into main branch
+ git merge --no-commit 7.x-5.x-STARTERKIT
+ # ... solve conflicts
+ git commit -m "Merge branch '7.x-5.x-STARTERKIT' (+111-dev) into 7.x-5.x"
+ 
+ # theme zenlabs has been automatically disabled - re-enable
+ drush -y en zenlabs
+
+==Aktualisierte Instanz auf anderen Entwicklungsrechner übertragen==
+
+* Überprüfen, dass es keine nicht commiteten Dateien gibt.
+  
+  git pull   # macht einen ff-merge ohne commit/log-Eintrag!
+  # Schema Cache löschen
+  drush ev "cache_clear_all('schema:', 'cache', TRUE);"
+  # Schemaänderungen aus der neuen Version nachziehen
+  drush updatedb
+
+==Neue Instanz (z.B. QA) aufsetzen==
+
+Postgres und [[PHP Installation|PHP aktualisieren]] (postgresql als DB erfordert php53!)
+
+Neue Datenbank
+
+  su - postgres
+  createdb drupal_labs (oder ggf. drupal_qalabs)
+  exit
+
+Drupal-DB-User ggf. anlegen und berechtigen
+
+  su - postgres
+  psql
+    create user drupaladm with password 'geheim';
+    grant all privileges on database drupal_labs to drupaladm;
+    \q
+  exit
+
+Verzeichnis (für qalabs)
+
+  cd /opt
+  git clone nbt@ite-git:/srv/git/labs.git qalabs
+  # bzw. in DMZ: git clone ssh://nbt@ite-git:4712/srv/git/labs.git qalabs
+
+Link für Apache
+
+  cd /var/www/html
+  ln -s ../../../opt/labs
+
+Apachekonfiguration (Multiviews wird für multilingual gebraucht)
+
+  s. labs.conf
+
+===mit leerer DB starten===
+
+Interaktive Installation über Browser (/labs)
+
+Erstkonfiguration
+  Module Locale und Features aktivieren
+  Sprache Deutsch hinzufügen
+  Prefix "en" für Sprache en definieren
+  Feature labs aktivieren
+
+===mit DB-Inhalt von anderem System starten===
+
+System-Vorbereitung
+
+  Postgres-Port in iptables freigeben (falls das System nicht durch DMZ-Einstellungen blockiert wird)
+
+Dateien und Verzeichnis für Drupal-Konfig
+
+  # settings.php von anderem Rechner übernehmen  
+  cd /opt/qalabs
+  vi sites/default/settings.php # site_name und DB-Verbindung setzen
+  chown :apache sites/default/settings.php
+  chmod 664 sites/default/settings.php
+  mkdir sites/default/files
+  chown :apache sites/default/files
+  chmod 775 sites/default/files
+  chcon -vt httpd_sys_content_t './files'  # auf SElinux-Systemen
+
+DBTNG-Migrator Prozedur (in replicate_labs_to_demo.sh) produziert Fehler:
+
+ SQLSTATE[42703]: Undefined column: 7 ERROR:  column "i18n_mode" of   [error]
+ relation "block" does not exist at character 112
+ SQLSTATE[42703]: Undefined column: 7 ERROR:  column "l10n_status" of [error]
+ relation "locales_target" does not exist at character 71
+ SQLSTATE[42703]: Undefined column: 7 ERROR:  column "i18n_mode" of   [error]
+ relation "menu_custom" does not exist at character 57
+ SQLSTATE[42703]: Undefined column: 7 ERROR:  column "language" of    [error]
+ relation "menu_links" does not exist at character 215
+ SQLSTATE[42703]: Undefined column: 7 ERROR:  column "language" of    [error]
+ relation "taxonomy_term_data" does not exist at character 78
+ SQLSTATE[42703]: Undefined column: 7 ERROR:  column "language" of    [error]
+ relation "taxonomy_vocabulary" does not exist at character 99
+
+daher 
+:auf Quellsystem
+  pg_dump -U postgres drupal_labs > /tmp/drupal_labs.sql
+  scp /tmp/drupal_labs.sql ite-srv11:/tmp
+:auf Zielsystem
+  psql drupal_labs </tmp/drupal_labs.sql
+
+==Weblinks==
+
+* [http://www.vogella.de/articles/Git/article.html Git Tutorial]
