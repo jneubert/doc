@@ -202,6 +202,19 @@ daher
 :auf Zielsystem
   psql drupal_labs </tmp/drupal_labs.sql
 
+==Patches==
+
+s. a. [https://drupal.org/node/707484 Making a Drupal patch with Git]
+
+===Patch erstellen===
+
+* ins Moduldirectory gehen
+* Datei(en) ändern
+* Patch-Datei erstellen
+
+  git diff 7.x-1.x > \[project_name\]-\[short-description\]-\[issue-number\]-\[comment-number\].patch
+
+
 ==Weblinks==
 
 * [http://www.vogella.de/articles/Git/article.html Git Tutorial]
