@@ -197,10 +197,13 @@ DBTNG-Migrator Prozedur (in replicate_labs_to_demo.sh) produziert Fehler:
 
 daher 
 :auf Quellsystem
+
   pg_dump -U postgres drupal_labs > /tmp/drupal_labs.sql
   scp /tmp/drupal_labs.sql ite-srv11:/tmp
+
 :auf Zielsystem
-  psql drupal_labs </tmp/drupal_labs.sql
+
+  psql drupal_labs < /tmp/drupal_labs.sql
 
 ==Patches==
 
