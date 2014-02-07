@@ -50,11 +50,27 @@ Beispiel ZBW Labs. S. a. [[Git]]
 ==Vendor Update Drupal Modules==
 
 * Überprüfen, dass der Core auf Stand ist!
-* Überprüfen, dass es keine nicht commiteten Dateien gibt.
-* Patch-Dateien ggf. sichern!
+* Überprüfen, dass es keine nicht commiteten Dateien gibt (Patch-Dateien ggf. sichern)
 
-  drush up    # aktualisiert core + contrib, incl. updatedb
-  git commit  # Infos aus update (Versionen und updatedb Infos) kann verwendet werden!
+* Nach verfügbaren Upates suchen:
+
+  drush up -n
+
+* Nach geänderten Files suchen:
+
+  drush hacked-list-projects
+
+* Module einzeln aktualisieren (insbesondere, damit DB-Fehler sofort auffallen und modulweise behoben werden können).
+
+  drush rl # installierte Version checken
+  drush dl <module>  # ggf. auf -dev achten
+  drush updb
+
+Testen (aufrufbar | fliegt die Seite auseinander | ist editieren möglich? | ggf. auch deploy!)
+
+  git status   # gibt es neue Files?
+  git add ...
+  git commit -am "Update module xyz 7.x-1.3"
   git push
 
 ==Update von separaten (Modul-) Repositories (zenlabs)==
