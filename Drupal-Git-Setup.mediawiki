@@ -215,7 +215,7 @@ s. a. [https://drupal.org/node/707484 Making a Drupal patch with Git]
 * Datei(en) ändern
 * Patch-Datei erstellen
 
-  git diff 7.x-1.x > \[project_name\]-\[short-description\]-\[issue-number\]-\[comment-number\].patch
+  git diff 7.x-1.x > [project_name]-[short-description]-[issue-number]-[comment-number].patch
 
 
 ==Weblinks==
