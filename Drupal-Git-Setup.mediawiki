@@ -207,16 +207,25 @@ daher
 
 ==Patches==
 
-s. a. [https://drupal.org/node/707484 Making a Drupal patch with Git]
-
 ===Patch erstellen===
+
+s. a. [https://drupal.org/node/707484 Making a Drupal patch with Git]
 
 * ins Moduldirectory gehen
 * Datei(en) ändern
 * Patch-Datei erstellen
 
-  git diff 7.x-1.x > [project_name]-[short-description]-[issue-number]-[comment-number].patch
+  git diff > [project_name]-[short-description]-[issue-number]-[comment-number].patch
 
+===Patch anwenden===
+
+s. a. [https://drupal.org/patch/apply Applying patches]
+
+* ins Moduldirectory gehen
+
+ patch -p1 --verbose < path/file.patch
+
+'Nicht' mit git apply ... versuchen - dann wird das git root Verzeichnis angenommen!!
 
 ==Weblinks==
 
