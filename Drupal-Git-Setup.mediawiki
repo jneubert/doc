@@ -109,7 +109,7 @@ s. a. [https://drupal.org/patch/apply Applying patches]
 
 ==Deployment==
 
-====Deployment auf Test/QA====
+===Deployment auf Test/QA===
 
 ====von DEV====
 
@@ -163,7 +163,9 @@ s. a. [https://drupal.org/patch/apply Applying patches]
 
 * dito
 
-==Aktualisierte Instanz auf anderen Entwicklungsrechner übertragen==
+==Maintenance==
+
+===Aktualisierte Instanz auf anderen Entwicklungsrechner übertragen===
 
 * Überprüfen, dass es keine nicht commiteten Dateien gibt.
   
@@ -173,7 +175,7 @@ s. a. [https://drupal.org/patch/apply Applying patches]
   # Schemaänderungen aus der neuen Version nachziehen
   drush updatedb
 
-==Neue Instanz (z.B. QA) aufsetzen==
+===Neue Instanz (z.B. QA) aufsetzen===
 
 Postgres und [[PHP Installation|PHP aktualisieren]] (postgresql als DB erfordert php53!)
 
@@ -207,7 +209,7 @@ Apachekonfiguration (Multiviews wird für multilingual gebraucht)
 
   s. labs.conf
 
-===mit leerer DB starten===
+====mit leerer DB starten====
 
 Interaktive Installation über Browser (/labs)
 
@@ -217,7 +219,7 @@ Erstkonfiguration
   Prefix "en" für Sprache en definieren
   Feature labs aktivieren
 
-===mit DB-Inhalt von anderem System starten===
+====mit DB-Inhalt von anderem System starten====
 
 System-Vorbereitung
 
