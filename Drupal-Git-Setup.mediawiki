@@ -109,14 +109,59 @@ s. a. [https://drupal.org/patch/apply Applying patches]
 
 ==Deployment==
 
-===auf DEV===
+====Deployment auf Test/QA====
 
+====von DEV====
 
-===auf QA/QALIVE===
+* Merge von Issue Branches
+* ggf. git rebase zur Zusammenfassung von Commits
+* zentrales Repository aktualisieren
 
+  git push
 
-===auf PROD===
+====auf QA====
 
+* ggf. händische Sicherung mit 'backup_drupal.sh'
+* Update aus dem Repository automatisiert
+
+  update_drupal_inst.sh labs
+
+* anhand von Jira die relevanten Issues holen und abarbeiten
+* testen ...
+* Issues auf resolved setzen
+* ''keine Code- oder Konfigurationsänderung auf QA!'' (ggf. Zyklus von DEV aus wiederholen)
+* immer
+
+====auf QALIVE====
+
+* ggf. händische Sicherung mit 'backup_drupal.sh'
+* Update aus dem Repository automatisiert
+
+  update_drupal_inst.sh labs
+
+* mindestens ein Deployment testen
+* ggf. weitere Issue-spezifische Deployment Tests
+
+====neue Version erzeugen====
+
+* in Git taggen (auf QA)
+
+  git tag -a 7.x-1.5 -m "7.x-1.5"
+  git push --tags
+
+* KEIN allgemeines git push von QA!
+
+===Deployment in Produktion===
+
+====auf PROD/STAGE====
+
+  update_drupal_inst.sh labs 7.x-1.5
+
+'''Offen: pull in fetch und merge (mit Meldung) trennen. Wie Meldung zur tatsächlichen Produktivsetzung des Codes erzeugen?'''
+
+====auf PROD/LIVE====
+
+* dito
 
 ==Aktualisierte Instanz auf anderen Entwicklungsrechner übertragen==
 
