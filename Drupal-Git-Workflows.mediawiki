@@ -124,7 +124,7 @@ s. a. [https://drupal.org/patch/apply Applying patches]
 * ggf. händische Sicherung mit 'backup_drupal.sh'
 * Update aus dem Repository automatisiert
 
-  update_drupal_inst.sh labs
+  update_drupal_inst.sh qalabs
 
 * anhand von Jira die relevanten Issues holen und abarbeiten
 * testen ...
@@ -137,19 +137,17 @@ s. a. [https://drupal.org/patch/apply Applying patches]
 * ggf. händische Sicherung mit 'backup_drupal.sh'
 * Update aus dem Repository automatisiert
 
-  update_drupal_inst.sh labs
+  update_drupal_inst.sh qalivelabs
 
 * mindestens ein Deployment testen
 * ggf. weitere Issue-spezifische Deployment Tests
 
 ====neue Version erzeugen====
 
-* in Git taggen (auf QA)
+* in Git taggen (auf DEV, nicht QA - dort kann es unsinnige Merges geben)
 
   git tag -a 7.x-1.5 -m "7.x-1.5"
   git push --tags
-
-* KEIN allgemeines git push von QA!
 
 ===Deployment in Produktion===
 
@@ -289,6 +287,8 @@ daher
 ===drush===
 
 * mit Git installieren
+
+  cd /opt
   git clone --branch 7.x-4.x http://git.drupal.org/project/drush.git
   cd /usr/local/bin
   ln -s /opt/drush/drush
