@@ -1,36 +1,5 @@
 Beispiel ZBW Labs. S. a. [[Git]]
 
-==Drupal Installation==
-
-===Drupal Core===
-
-* für Projekt lokales Git-Repository als Clone von Drupal Core anlegen
-  cd /opt
-  git clone http://git.drupal.org/project/drupal.git labs
-* verfügbare Tags anzeigen
-  git tag
-* aktuellste Version aktivieren
-  git checkout 7.9
-* das Projekt-Repository als zentrales setzen
-  git remote rename origin drupal
-  remote add origin ssh://nbt@ite-git/srv/git/labs.git
-* Projekt-Branch anlegen
-  checkout -b labs
-* in das zentrale Projekt-Repository laden
-  git push origin labs
-* Name+Email setzen
-  git config --global user.name "Joachim Neubert"
-  git config --global user.email "j.neubert@zbw.eu"
-* ggf. farbige Anzeige setzen
-  git config --global  color.ui "auto"
-
-===drush===
-
-* mit Git installieren
-  git clone --branch 7.x-4.x http://git.drupal.org/project/drush.git
-  cd /usr/local/bin
-  ln -s /opt/drush/drush
-
 ==Development (DEV only)==
 
 
@@ -138,10 +107,15 @@ s. a. [https://drupal.org/patch/apply Applying patches]
 
 'Nicht' mit git apply ... versuchen - dann wird das git root Verzeichnis angenommen!!
 
-==Deployment QA/QALIVE==
+==Deployment==
+
+===auf DEV===
 
 
-==Deployment PROD==
+===auf QA/QALIVE===
+
+
+===auf PROD===
 
 
 ==Aktualisierte Instanz auf anderen Entwicklungsrechner übertragen==
@@ -240,6 +214,37 @@ daher
 :auf Zielsystem
 
   psql drupal_labs < /tmp/drupal_labs.sql
+
+==Drupal Installation==
+
+===Drupal Core===
+
+* für Projekt lokales Git-Repository als Clone von Drupal Core anlegen
+  cd /opt
+  git clone http://git.drupal.org/project/drupal.git labs
+* verfügbare Tags anzeigen
+  git tag
+* aktuellste Version aktivieren
+  git checkout 7.9
+* das Projekt-Repository als zentrales setzen
+  git remote rename origin drupal
+  remote add origin ssh://nbt@ite-git/srv/git/labs.git
+* Projekt-Branch anlegen
+  checkout -b labs
+* in das zentrale Projekt-Repository laden
+  git push origin labs
+* Name+Email setzen
+  git config --global user.name "Joachim Neubert"
+  git config --global user.email "j.neubert@zbw.eu"
+* ggf. farbige Anzeige setzen
+  git config --global  color.ui "auto"
+
+===drush===
+
+* mit Git installieren
+  git clone --branch 7.x-4.x http://git.drupal.org/project/drush.git
+  cd /usr/local/bin
+  ln -s /opt/drush/drush
 
 ==Weblinks==
 
