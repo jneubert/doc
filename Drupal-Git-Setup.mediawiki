@@ -31,7 +31,10 @@ Beispiel ZBW Labs. S. a. [[Git]]
   cd /usr/local/bin
   ln -s /opt/drush/drush
 
-==Vendor Update Drupal Core==
+==Development (DEV only)==
+
+
+===Vendor Update Drupal Core===
 
   git checkout labs   # um sicherzugehen, dass ich auf dem Masterbranch bin
   git fetch -v drupal
@@ -47,7 +50,7 @@ Beispiel ZBW Labs. S. a. [[Git]]
   git push
   git push --tags
 
-==Vendor Update Drupal Modules==
+===Vendor Update Drupal Modules===
 
 * Überprüfen, dass der Core auf Stand ist!
 * Überprüfen, dass es keine nicht commiteten Dateien gibt (Patch-Dateien ggf. sichern)
@@ -73,14 +76,9 @@ Testen (aufrufbar | fliegt die Seite auseinander | ist editieren möglich? | ggf
   git commit -am "Upgrade module xyz to 7.x-1.3"
   git push
 
-==Merge von issue branch==
+===Update von separaten (Modul-) Repositories (zenlabs)===
 
-  git co labs
-  git merge --log --no-ff Issue_LABS-117_drupal-upgrade
-
-==Update von separaten (Modul-) Repositories (zenlabs)==
-
-===Aktualisierung zenlabs===
+====Aktualisierung zenlabs====
 
  # update zen (currently dev release used!)
  drush up zen-7.x-5.x-dev 
@@ -112,6 +110,39 @@ Testen (aufrufbar | fliegt die Seite auseinander | ist editieren möglich? | ggf
  
  # theme zenlabs has been automatically disabled - re-enable
  drush -y en zenlabs
+
+===Merge von issue branch===
+
+  git co labs
+  git merge --log --no-ff Issue_LABS-117_drupal-upgrade
+
+===Patches===
+
+====Patch erstellen====
+
+s. a. [https://drupal.org/node/707484 Making a Drupal patch with Git]
+
+* ins Moduldirectory gehen
+* Datei(en) ändern
+* Patch-Datei erstellen
+
+  git diff > [project_name]-[short-description]-[issue-number]-[comment-number].patch
+
+====Patch anwenden====
+
+s. a. [https://drupal.org/patch/apply Applying patches]
+
+* ins Moduldirectory gehen
+
+ patch -p1 --verbose < path/file.patch
+
+'Nicht' mit git apply ... versuchen - dann wird das git root Verzeichnis angenommen!!
+
+==Deployment QA/QALIVE==
+
+
+==Deployment PROD==
+
 
 ==Aktualisierte Instanz auf anderen Entwicklungsrechner übertragen==
 
@@ -209,28 +240,6 @@ daher
 :auf Zielsystem
 
   psql drupal_labs < /tmp/drupal_labs.sql
-
-==Patches==
-
-===Patch erstellen===
-
-s. a. [https://drupal.org/node/707484 Making a Drupal patch with Git]
-
-* ins Moduldirectory gehen
-* Datei(en) ändern
-* Patch-Datei erstellen
-
-  git diff > [project_name]-[short-description]-[issue-number]-[comment-number].patch
-
-===Patch anwenden===
-
-s. a. [https://drupal.org/patch/apply Applying patches]
-
-* ins Moduldirectory gehen
-
- patch -p1 --verbose < path/file.patch
-
-'Nicht' mit git apply ... versuchen - dann wird das git root Verzeichnis angenommen!!
 
 ==Weblinks==
 
