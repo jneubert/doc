@@ -187,16 +187,16 @@ Drupal-DB-User ggf. anlegen und berechtigen
 
   su - postgres
   psql
-    create user drupaladm with password 'geheim';
-    grant all privileges on database drupal_labs to drupaladm;
+    create user drupaladmin with password 'geheim';
+    grant all privileges on database drupal_labs to drupaladmin;
     \q
   exit
 
 Verzeichnis (für qalabs)
 
   cd /opt
-  git clone nbt@ite-git:/srv/git/labs.git qalabs
-  # bzw. in DMZ: git clone ssh://nbt@ite-git:4712/srv/git/labs.git qalabs
+  git clone user@server:/srv/git/labs.git qalabs
+  # bzw. in DMZ: git clone ssh://user@server:4712/srv/git/labs.git qalabs
 
 Link für Apache
 
@@ -207,11 +207,37 @@ Apachekonfiguration (Multiviews wird für multilingual gebraucht)
 
   s. labs.conf
 
-====mit leerer DB starten====
+====Initialisierung neue DEV DB====
 
 Interaktive Installation über Browser (/labs)
 
-Erstkonfiguration
+- oder -
+
+Installation mit drush
+  
+  cd /opt/drupaldev
+  # settings.php wird vorausgesetzt
+  chmod 666 sites/default/settings.php
+  mkdir -p sites/default/files
+  chmod 777 sites/default/files
+  # Datenbank wird im Folgeschritt komplett gelöscht und neu aufgebaut
+  drush site-install standard --site-name=drupaldev
+
+Für Drupal-Development allgemein
+
+  drush -y dis overlay dashboard
+  drush dl devel coder examples security_review hacked
+  drush -y en simpletest devel coder coder_review
+  drush -y updb
+
+Spezifisch für web_taxonmy
+
+  drush dl ctools http_client web_taxonomy
+  drush -y en ctools http_client web_taxonomy
+  drush -y updb
+
+Erstkonfiguration für labs
+
   Module Locale und Features aktivieren
   Sprache Deutsch hinzufügen
   Prefix "en" für Sprache en definieren
@@ -273,7 +299,7 @@ daher
   git checkout 7.9
 * das Projekt-Repository als zentrales setzen
   git remote rename origin drupal
-  remote add origin ssh://nbt@ite-git/srv/git/labs.git
+  remote add origin ssh://user@server/srv/git/labs.git
 * Projekt-Branch anlegen
   checkout -b labs
 * in das zentrale Projekt-Repository laden
