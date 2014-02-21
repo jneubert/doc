@@ -1,6 +1,6 @@
 Munin ist ein Werkzeug zur Überwachung von Rechnern in einem Rechnernetzwerk mit Status- und Prozess-Visualisierung. Ein zentraler Rechner, der sogenannte „Master”, sammelt Leistungsdaten von im Netzwerk verteilten Computern, den „Nodes”, speichert diese und stellt die Daten mittels Webschnittstelle graphisch dar.
 
-===Plugins===
+==Plugins==
 
 Plugins liegen in 
  /usr/share/munin/plugins
@@ -8,7 +8,7 @@ und werden per slink
  ln -s /usr/share/munin/plugins/http_response_time_ /etc/munin/plugins/http_response_time_server
 aktiviert
 
-===='''Plugin Test'''====
+===Plugin Test===
 
  munin-run http_response_time_servers
 Evtl. Konfigurationen werden in der 
@@ -19,11 +19,11 @@ Die Konfigurationsparameter von Plugins können mit "config" abgefragt werden, z
   munin-run load config
 abgefragt werden.
 
-====Überwachung von HTTP-basisierten Services====
+===Überwachung von HTTP-basisierten Services===
 
 Mit Plugin [https://github.com/munin-monitoring/contrib/blob/master/plugins/other/wget_page wget_page], Parameter s.d., werden sowohl Antwortzeiten als auch HTTP-Responsecodes als auch optional reguläre Ausdrücke auf der Webseite überwacht.
 
-====Postgresql====
+===Postgresql===
 
 Plugins:
 * [https://github.com/munin-monitoring/contrib/blob/master/plugins/other/postgres_space_ postgres_space_] - Plattenplatzbelegung
@@ -32,11 +32,11 @@ Plugins:
 * [http://munin-monitoring.org/svn/munin/trunk/plugins/node.d/postgres_tuples_.in postgres_tuples_] - einzelne Operationen (aus einer neuern Version der Distribution, braucht Munin/Plugin/Pgsql.pm, funktioniert daher leider nicht!)
 minimale Config in <tt> /etc/munin/plugin-conf.d/postgres </tt>
 
-==='''Munin auf DMZ-Rechner über SSH-Tunnel'''===
+==Munin auf DMZ-Rechner über SSH-Tunnel==
 
 s. Intranet
 
-===Links===
+==Links==
 
 [http://munin-monitoring.org/ Munin - Trac]
 
