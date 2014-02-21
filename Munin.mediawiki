@@ -120,6 +120,40 @@ warning: /etc/munin/munin-node.conf created as /etc/munin/munin-node.conf.rpmnew
 
 Glatt durchgelaufen
 
+==Installation auf Nodeserver (Centos 6.4 x86_64)==
+
+<pre>
+# yum install munin-node --enablerepo=epel
+...
+
+#=============================================================================================================================================================
+ Package                                           Arch                           Version                                 Repository                    Size
+#=============================================================================================================================================================
+Installing:
+ munin-node                                        noarch                         2.0.19-1.el6                            epel                         399 k
+Installing for dependencies:
+ hdparm                                            x86_64                         9.43-4.el6                              base                          81 k
+ munin-common                                      noarch                         2.0.19-1.el6                            epel                          86 k
+ perl-Crypt-DES                                    x86_64                         2.05-9.el6                              epel                          19 k
+ perl-DBD-Pg                                       x86_64                         2.15.1-4.el6_3                          base                         196 k
+ perl-IO-Multiplex                                 noarch                         1.13-1.el6                              epel                          24 k
+ perl-List-MoreUtils                               x86_64                         0.22-10.el6                             base                          53 k
+ perl-Net-CIDR                                     noarch                         0.14-1.el6                              epel                          17 k
+ perl-Net-SNMP                                     noarch                         5.2.0-4.el6                             epel                         100 k
+ perl-Net-Server                                   noarch                         0.97-7.el6                              epel                         142 k
+ perl-XML-LibXML                                   x86_64                         1:1.70-5.el6                            base                         364 k
+ perl-XML-NamespaceSupport                         noarch                         1.10-3.el6                              base                          17 k
+ perl-XML-Parser                                   x86_64                         2.36-7.el6                              base                         224 k
+ perl-XML-SAX                                      noarch                         0.96-7.el6                              base                          78 k
+ sysstat                                           x86_64                         9.0.4-22.el6                            base                         230 k
+
+Transaction Summary
+#============================================================================================================================================================
+Install      15 Package(s)
+</pre>
+
+Glatt durchgelaufen
+
 ===Anpassungen Config===
 
 auf Basis der .rpmnew Files
