@@ -36,6 +36,55 @@ minimale Config in <tt> /etc/munin/plugin-conf.d/postgres </tt>
 
 s. Intranet
 
+==Upgrade auf Masterserver(Centos 5.7 i386)==
+
+(von munin-1.2.5-2.el5.rf)
+
+<pre>
+yum install --enablerepo=epel munin munin-node
+
+...
+
+======================================================================================
+ Package                        Arch         Version             Repository      Size
+======================================================================================
+Updating:
+ munin                          noarch       2.0.19-1.el5        epel           218 k
+ munin-node                     noarch       2.0.19-1.el5        epel           422 k
+Installing for dependencies:
+ munin-common                   noarch       2.0.19-1.el5        epel            87 k
+ perl-Cache-Cache               noarch       1.06-1.el5.rf       rpmforge        84 k
+ perl-Cache-Memcached           noarch       1.29-1.el5.rf       rpmforge        27 k
+ perl-Carp-Always               noarch       0.09-2.el5          epel           9.7 k
+ perl-Class-Singleton           noarch       1.4-1.el5.rf        rpmforge        15 k
+ perl-DBD-Pg                    i386         1.49-4.el5_8        base           114 k
+ perl-DateTime                  i386         1:0.41-1.el5        epel           598 k
+ perl-FCGI                      i386         0.68-1.el5.rf       rpmforge        87 k
+ perl-File-Copy-Recursive       noarch       0.38-1.el5.rf       rpmforge        22 k
+ perl-List-MoreUtils            i386         0.33-5.el5          epel            77 k
+ perl-Log-Log4perl              noarch       1.26-1.el5.rf       rpmforge       406 k
+ perl-Net-CIDR                  noarch       0.13-2.el5          epel            16 k
+ perl-Params-Validate           i386         0.95-1.el5.rf       rpmforge       113 k
+ perl-Taint-Runtime             i386         0.03-1.el5.1        epel            19 k
+ perl-XML-LibXML                i386         1.58-6              base           230 k
+ perl-XML-LibXML-Common         i386         0.13-8.2.2          base            16 k
+
+Transaction Summary
+======================================================================================
+Install      16 Package(s)
+Upgrade       2 Package(s)
+
+...
+  Updating       : munin-node                                                   17/20
+warning: /etc/munin/munin-node.conf created as /etc/munin/munin-node.conf.rpmnew
+warning: /etc/munin/plugin-conf.d/munin-node created as /etc/munin/plugin-conf.d/munin-node.rpmnew
+  Updating       : munin                                                        18/20
+warning: /etc/httpd/conf.d/munin.conf created as /etc/httpd/conf.d/munin.conf.rpmnew
+warning: /etc/munin/munin.conf created as /etc/munin/munin.conf.rpmnew
+  Cleanup        : munin                                                        19/20
+  Cleanup        : munin-node                                                   20/20
+</pre>
+Glatt durchgelaufen
 ==Links==
 
 [http://munin-monitoring.org/ Munin - Trac]
