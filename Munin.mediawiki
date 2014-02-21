@@ -1,0 +1,50 @@
+Munin ist ein Werkzeug zur Überwachung von Rechnern in einem Rechnernetzwerk mit Status- und Prozess-Visualisierung. Ein zentraler Rechner, der sogenannte „Master”, sammelt Leistungsdaten von im Netzwerk verteilten Computern, den „Nodes”, speichert diese und stellt die Daten mittels Webschnittstelle graphisch dar.
+
+===Plugins===
+
+Plugins liegen in 
+ /usr/share/munin/plugins
+und werden per slink
+ ln -s /usr/share/munin/plugins/http_response_time_ /etc/munin/plugins/http_response_time_server
+aktiviert
+
+===='''Plugin Test'''====
+
+ munin-run http_response_time_servers
+Evtl. Konfigurationen werden in der 
+ /etc/munin/plugin-conf.d/munin-node
+oder in Dateien zum jeweiligen Plugin (z.B. <tt>postgres</tt>) vorgenommen. Z.B. kann das Plugin mit Parametern aufgerufen werden.
+
+Die Konfigurationsparameter von Plugins können mit "config" abgefragt werden, z.B. 
+  munin-run load config
+abgefragt werden.
+
+====Überwachung von HTTP-basisierten Services====
+
+Mit Plugin [https://github.com/munin-monitoring/contrib/blob/master/plugins/other/wget_page wget_page], Parameter s.d., werden sowohl Antwortzeiten als auch HTTP-Responsecodes als auch optional reguläre Ausdrücke auf der Webseite überwacht.
+
+====Postgresql====
+
+Plugins:
+* [https://github.com/munin-monitoring/contrib/blob/master/plugins/other/postgres_space_ postgres_space_] - Plattenplatzbelegung
+* [https://github.com/munin-monitoring/contrib/blob/master/plugins/other/postgres_block_read_ postgres_block_read_] - Disk ./. Cache
+: unter 8.4 reichen die default Parameter aus, es brauchen keine speziellen Werte in postgresql.conf gesetzt werden.
+* [http://munin-monitoring.org/svn/munin/trunk/plugins/node.d/postgres_tuples_.in postgres_tuples_] - einzelne Operationen (aus einer neuern Version der Distribution, braucht Munin/Plugin/Pgsql.pm, funktioniert daher leider nicht!)
+minimale Config in <tt> /etc/munin/plugin-conf.d/postgres </tt>
+
+==='''Munin auf DMZ-Rechner über SSH-Tunnel'''===
+
+s. Intranet
+
+===Links===
+
+[http://munin-monitoring.org/ Munin - Trac]
+
+[http://exchange.munin-monitoring.org/ Munin Exchange | Munin plugin repository]
+
+[http://www.howtoforge.de/howto/uberwachung-eines-centos-52-servers-mit-munin-und-monit/ Überwachung eines CentOS 5.2 Servers mit munin und monit | HowtoForge]
+
+[http://www.sysadmin-fr.org/en/munin-getting-started Getting started - a simple setup | sysadmin]
+
+[http://munin.openstreetmap.org/ Munin-Graphen der Open Streetmap Site]
+
