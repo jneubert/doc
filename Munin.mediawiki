@@ -120,7 +120,7 @@ warning: /etc/munin/munin-node.conf created as /etc/munin/munin-node.conf.rpmnew
 
 Glatt durchgelaufen
 
-==Installation auf Nodeserver (Centos 6.4 x86_64)==
+===Installation auf Nodeserver (Centos 6.4 x86_64)===
 
 <pre>
 # yum install munin-node --enablerepo=epel
