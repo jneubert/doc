@@ -36,7 +36,9 @@ minimale Config in <tt> /etc/munin/plugin-conf.d/postgres </tt>
 
 s. Intranet
 
-==Upgrade auf Masterserver (Centos 5.7 i386)==
+==Upgrade auf Munin 2.0.19 (21.2.2014)==
+
+===Masterserver (Centos 5.7 i386)===
 
 (von munin-1.2.5-2.el5.rf)
 
@@ -86,7 +88,7 @@ warning: /etc/munin/munin.conf created as /etc/munin/munin.conf.rpmnew
 </pre>
 Glatt durchgelaufen
 
-==Upgrade auf Nodeserver (RHEL 5.10 x86_64)==
+===Nodeserver (RHEL 5.10 x86_64)===
 
 (von munin-node-1.2.5-2.el5.rf)
 <pre>
@@ -117,6 +119,10 @@ warning: /etc/munin/munin-node.conf created as /etc/munin/munin-node.conf.rpmnew
 </pre>
 
 Glatt durchgelaufen
+
+===Anpassungen Config===
+
+auf Basis der .rpmnew Files
 
 ==Links==
 
