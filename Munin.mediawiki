@@ -36,7 +36,7 @@ minimale Config in <tt> /etc/munin/plugin-conf.d/postgres </tt>
 
 s. Intranet
 
-==Upgrade auf Masterserver(Centos 5.7 i386)==
+==Upgrade auf Masterserver (Centos 5.7 i386)==
 
 (von munin-1.2.5-2.el5.rf)
 
@@ -45,9 +45,9 @@ yum install --enablerepo=epel munin munin-node
 
 ...
 
-======================================================================================
+#======================================================================================
  Package                        Arch         Version             Repository      Size
-======================================================================================
+#======================================================================================
 Updating:
  munin                          noarch       2.0.19-1.el5        epel           218 k
  munin-node                     noarch       2.0.19-1.el5        epel           422 k
@@ -70,7 +70,7 @@ Installing for dependencies:
  perl-XML-LibXML-Common         i386         0.13-8.2.2          base            16 k
 
 Transaction Summary
-======================================================================================
+#======================================================================================
 Install      16 Package(s)
 Upgrade       2 Package(s)
 
