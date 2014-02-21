@@ -85,6 +85,39 @@ warning: /etc/munin/munin.conf created as /etc/munin/munin.conf.rpmnew
   Cleanup        : munin-node                                                   20/20
 </pre>
 Glatt durchgelaufen
+
+==Upgrade auf Nodeserver (RHEL 5.10 x86_64)==
+
+(von munin-node-1.2.5-2.el5.rf)
+<pre>
+# yum upgrade munin-node --enablerepo=epel
+...
+
+#================================================================================
+ Package                Arch      Version         Repository               Size
+#================================================================================
+Updating:
+ munin-node             noarch    2.0.19-1.el5    epel                    422 k
+Installing for dependencies:
+ munin-common           noarch    2.0.19-1.el5    epel                     87 k
+ perl-List-MoreUtils    x86_64    0.33-5.el5      epel                     75 k
+ perl-Net-CIDR          noarch    0.13-2.el5      epel                     16 k
+ perl-Net-DNS           x86_64    0.59-3.el5      rhel-x86_64-server-5    215 k
+ perl-Net-IP            noarch    1.25-2.fc6      rhel-x86_64-server-5     31 k
+
+Transaction Summary
+#================================================================================
+Install       5 Package(s)
+Upgrade       1 Package(s)
+
+...
+  Updating       : munin-node                                               6/7
+warning: /etc/munin/munin-node.conf created as /etc/munin/munin-node.conf.rpmnew
+  Cleanup        : munin-node                                               7/7
+</pre>
+
+Glatt durchgelaufen
+
 ==Links==
 
 [http://munin-monitoring.org/ Munin - Trac]
