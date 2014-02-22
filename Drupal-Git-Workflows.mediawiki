@@ -40,9 +40,8 @@ Beispiel ZBW Labs. S. a. [[Git]]
 
 Testen (aufrufbar | fliegt die Seite auseinander | ist editieren möglich? | ggf. auch deploy!)
 
-  git status   # gibt es neue Files?
-  git add ...
-  git commit -am "Upgrade module xyz to 7.x-1.3"
+  git add <path/to/module>
+  git commit -m "Upgrade module xyz to 7.x-1.3"
   git push
 
 ===Update von separaten (Modul-) Repositories (zenlabs)===
