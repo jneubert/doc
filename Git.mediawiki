@@ -155,6 +155,14 @@ ins zentrale Repository senden.
 
 ==diverse Fehlermeldungen==
 
+===There is no tracking information for the current branch. (git rebase -i)===
+
+  git branch --set-upstream Issue_LABS-49_dbpedia origin/Issue_LABS-49_dbpedia
+
+Bei neuen Branches funktioniert das nicht - vorher einen spezifischen commit, der vor dem beabsichtigten rebase liegt, pushen:
+
+  git push origin 771bd83:refs/heads/Issue_LABS-49_dbpedia
+
 ===No refs in common and none specified; doing nothing. (git push)===
 
 Nach dem Clonen eines leeren Repositories und Committen von Dateien, einmalig
@@ -162,3 +170,14 @@ Nach dem Clonen eines leeren Repositories und Committen von Dateien, einmalig
   git push origin master
 
 Erst dann wird der Master-Branch auch Remote angelegt.
+
+===SSL3_GET_SERVER_CERTIFICATE:certificate verify failed while accessing ...===
+
+(z.B. bei Zugriff auf Github)
+
+  git clone --config "http.sslVerify=false" https://github.com/jneubert/doc.git
+
+bzw. dauerhaft:
+
+  git config --global http.sslVerify false
+
