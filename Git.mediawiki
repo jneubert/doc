@@ -141,22 +141,26 @@ s.: [[Drupal Git Workflows]]
 
 ===Neue Version einer tar.gz-Distribution installieren (Beispiel Fuseki)===
 
-Neue Version einer tar.gz-Distribution installieren (Beispiel Fuseki)
+    # download and extract XXX-distribution.tar.gz to extracted_dir
 
-http://ite-git/git/?p=fuseki.git
-
-    # download and extract XXX-distribution.tar.gz
     cd /opt/fuseki
-    # verify beeing on master branch
+    
+    # verify being on master branch
     # checkin everything
     /etc/init.d/fuseki stop
+    
+    # goto vendor branch
     git co jena-fuseki
     rsync \-ravu \--delete \--exclude=.git\* \--exclude=log \--exclude=DB \--exclude=Lucene extracted_dir/ .
     git diff && git st
     # add any new files
     git ci -am "synced from XXX-distribution.tar.gz"
+    
+    # back to master branch
     git checkout master
     git merge jena-fuseki
+    git push
+    
     /etc/init.d/fuseki start
 
 ==Überführen eines bestehenden SVN-Repositories nach Git==
