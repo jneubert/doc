@@ -142,7 +142,7 @@ s.: [[Drupal Git Workflows]]
 ===Neue Version einer tar.gz-Distribution installieren (Beispiel Fuseki)===
 
     # download and extract XXX-distribution.tar.gz to extracted_dir
-
+    
     cd /opt/fuseki
     
     # verify being on master branch
