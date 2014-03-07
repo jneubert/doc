@@ -137,7 +137,7 @@ verlinkt werden. Zusätzlich können projektspezfische .gitignores eingebunden w
 
 ===Git-Repositories von Drittanbietern einbinden (Beispiel Drupal)===
 
-s.: [[Drupal Git Setup]]
+s.: [[Drupal Git Workflows]]
 
 ===Neue Version einer tar.gz-Distribution installieren (Beispiel Fuseki)===
 
