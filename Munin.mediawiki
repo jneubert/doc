@@ -158,6 +158,12 @@ Glatt durchgelaufen
 
 auf Basis der .rpmnew Files
 
+==Diverse Fehler==
+
+===Zoom Graph wird nicht angezeigt===
+
+  chcon -R -t httpd_sys_script_exec_t /opt/munin/www/cgi
+
 ==Links==
 
 [http://munin-monitoring.org/ Munin - Trac]
