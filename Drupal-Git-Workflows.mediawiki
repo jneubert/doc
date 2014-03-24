@@ -2,13 +2,21 @@ Beispiel ZBW Labs. S. a. [[Git]]
 
 ==Development (DEV only)==
 
+===Setup Drupal Repository===
+
+Um nur den Branch 7.x zu tracken:
+
+  [remote "drupal"]
+    url = git://drupalcode.org/project/drupal.git
+    fetch = +refs/heads/7.x:refs/remotes/drupal/7.x
 
 ===Vendor Update Drupal Core===
 
   git checkout labs   # um sicherzugehen, dass ich auf dem Masterbranch bin
   git fetch -v drupal
   git tag   # Drupal-Versionstag identifizieren, z.B. "7.12"
-  git merge --log --no-ff 7.12  # erzwingt Commit mit generierter Message
+  # Commit mit generierter Message erzwingen
+  git merge --log --no-ff 7.12 -m "Issue LABS-23: Merge Drupal 7.12"
   drush updatedb
 
   # Update localization
