@@ -21,8 +21,9 @@ Beispiel ZBW Labs. S. a. [[Git]]
 
 ===Vendor Update Drupal Modules===
 
+* Modulupgrades idealerweise _nicht_ in einem Feature Branch, sondern in master, und dann in Feature Branch mergen.
 * Überprüfen, dass der Core auf Stand ist!
-* Überprüfen, dass es keine nicht commiteten Dateien gibt (Patch-Dateien ggf. sichern)
+* Überprüfen, dass es keine nicht commiteten Dateien gibt (Patch-Dateien ggf. sichern).
 
 * Nach verfügbaren Upates suchen:
 
