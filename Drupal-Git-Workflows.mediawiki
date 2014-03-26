@@ -53,40 +53,44 @@ Testen (aufrufbar | fliegt die Seite auseinander | ist editieren möglich? | ggf
   git commit -m "Upgrade module xyz to 7.x-1.3"
   git push
 
-===Update von separaten (Modul-) Repositories (zenlabs)===
+===Update of a separate vendor branch (zenlabs)===
 
-====Aktualisierung zenlabs====
+Zen allows for generating sub-themes, as a starter kit, on which zenlabs is
+built. In order to be able to merge in changes from later versions of zen,
+a separate ZEN-STARTERKIT branch of the unmodified generated files is 
+maintained.
 
- # update zen (currently dev release used!)
- drush up zen-7.x-5.x-dev 
+The zen theme directory must be kept in sync in the main and the vendor branch!
+
+ # update zen on main branch
+ # (as described above, including git commit) 
  
- # prepare old custom theme directory (let git point to the correct branch)
- cd sites/all/themes/custom/zenlabs
- git co 7.x-5.x-STARTERKIT
- 
- # move directory out of the way, because drush does not overwrite
- # its contents correctly
- cd ..
- mv -f zenlabs /tmp/zenlabs.bak
- 
- # initialize new custom theme directory
+ # update vendor branch
+ cd sites/all/themes/custom
+ git co ZEN-STARTERKIT
+
+ # update zen on vendor branch
+ # (as described above, including git commit) 
+
+ # remove directory for a clean start
+ rm -rf zenlabs
+
+ # recreate zenlabs from starterkit
  drush zen --path=sites/all/themes/custom --without-rtl "Zen Sub-theme Labs" zenlabs
  
- # hack to put it under git control
- cp -pr /tmp/zenlabs.bak/.git zenlabs
- 
  # check in
- git ci -am "New zen subtheme initialized from STARTERKIT 7.x-5.1+111-dev"
- 
- # back to main branch
- git checkout 7.x-5.x
- # merge STARTERKIT changes into main branch
- git merge --no-commit 7.x-5.x-STARTERKIT
- # ... solve conflicts
- git commit -m "Merge branch '7.x-5.x-STARTERKIT' (+111-dev) into 7.x-5.x"
- 
- # theme zenlabs has been automatically disabled - re-enable
- drush -y en zenlabs
+ git add zenlabs
+ git ci -am "New zen subtheme initialized from STARTERKIT 7.x-5.4"
+
+ # back to the main branch
+ git co labs
+
+ # merge vendor branch without commit
+ git merge -v --no-commit ZEN-STARTERKIT
+
+ # RESOVLE MERGE CONFLICTS
+
+ git commit -m "Merge branch ZEN-STARTERKIT 7.x-5.4 into labs"
 
 ===Merge von issue branch===
 
