@@ -60,7 +60,7 @@ Zugriff per SSH (Gitweb ist nur zum Browsen der Repositories; daher muss der ''D
 ===Bestehendes (lokales) Repository im zentralen Repository einrichten===
 ====Methode 1 (bevorzugt)====
 
-Repository auf dem Server wie unter [[#zentrales_Git_Projekt_Repository_auf_ite-git]] einrichten.
+Repository auf dem Server wie unter [[#zentrales-git-projekt-repository-auf-ite-git]] einrichten.
 
 Auf dem Client-Rechner remote "origin" definieren und
   $ git push --mirror origin
