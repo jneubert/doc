@@ -18,7 +18,10 @@ Schreibzugriff erfolgt stets über ssh mit individuellem User
 '''Anmerkung''': Damit man sich per ssh verbinden kann, muss entweder der entsprechende Public-Key hinterlegt werden, oder man benötigt das Passwort für den Linux-Account bzw. ändert es. Beides kann man selbst machen, wenn man sich als ''root'' verbindet und ''das allgemein bekannte Passwort'' benutzt...
 
 * Projekt-Repository anlegen (reines Repository ohne Working Files, Namenskonvention <tt> .git </tt>)
-  su - nbt     # um Repository mit den richtigen Berechtigungen anzulegen
+
+  # um Repository mit den richtigen Berechtigungen anzulegen, 
+  # individuellen User (nicht root) benutzen
+  su - nbt
   cd /srv/git
   git init --bare --shared test1.git   # beschreibbar durch group prod
 * Repository Root in <tt> /etc/gitweb.conf </tt> eintragen
