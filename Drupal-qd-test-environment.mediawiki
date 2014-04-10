@@ -1,0 +1,25 @@
+Sets up very quickly a test environment with a local web server, which seems to be adressable only locally.
+
+Therefore, set up a reverse proxy:
+
+File /etc/httpd/conf.d/drupal-qd.conf
+  <Location /qd>
+    ProxyPass http://127.0.0.1:8888
+    ProxyPassReverse http://127.0.0.1:8888
+  </Location>
+
+Installing a new environment:
+
+  # set up
+  cd /tmp
+  drush -y qd
+  # abort server
+  
+  cd /tmp/quick-drupal-{timestamp}/drupal
+  # set $base_url to mapped proxy path (e.g., http://nbt1/qd)
+  vi sites/default/settings.php
+  
+Starting up:
+
+  cd /tmp/quick-drupal-{timestamp}/drupal
+  drush rs
