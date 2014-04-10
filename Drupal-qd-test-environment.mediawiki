@@ -16,10 +16,15 @@ Installing a new environment:
   # abort server
   
   cd /tmp/quick-drupal-{timestamp}/drupal
-  # set $base_url to mapped proxy path (e.g., http://nbt1/qd)
   vi sites/default/settings.php
   
+    $base_url = 'http://nbt1/qd'
+    $conf['reverse_proxy'] = TRUE;
+    $conf['reverse_proxy_addresses'] = array('127.0.0.1');
+
 Starting up:
 
   cd /tmp/quick-drupal-{timestamp}/drupal
   drush rs
+
+'''Doesn't work anyway - form buttons are not prefixed with the path from $base_url.'''
