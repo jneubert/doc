@@ -1,0 +1,41 @@
+==Amalgame==
+
+
+===Installation on Redhat/CentOS===
+
+Amalgame is based on ClioPatria, which is requires the latest version of SWI-Prolog.
+
+===Install SWI Prolog===
+
+SWI-Prolog 6.6.4 on CentOS 6.5
+
+1) Install dependencies as indicated in http://www.swi-prolog.org/build/Redhat.html
+
+2) Follow http://www.swi-prolog.org/build/unix.html
+
+Set in build
+
+  PREFIX=/usr/local
+
+Ends with warnings:
+
+  make[1]: Leaving directory `/usr/local/src/pl-6.6.4/packages'
+ 
+  QA Notice: Package triggers severe warnings which indicate that it
+            may exhibit random runtime failures.
+  archive4pl.c:725: warning: implicit declaration of function ‘archive_filter_count’
+  archive4pl.c:730: warning: implicit declaration of function ‘archive_filter_name’
+ 
+  QA Notice: Package triggers severe warnings which indicate that it
+            may exhibit random runtime failures.
+  archive4pl.c:730: warning: assignment makes pointer from integer without a cast
+
+===Install ClioPatria and Amalgame===
+
+  cd /opt
+  git clone git://www.swi-prolog.org/home/pl/git/ClioPatria.git
+  ./configure
+
+  ./run.pl
+    ?- cpack_install('amalgame').
+
