@@ -1,7 +1,4 @@
-==Amalgame==
-
-
-===Installation on Redhat/CentOS===
+==Installation on Redhat/CentOS==
 
 Amalgame is based on ClioPatria, which is requires the latest version of SWI-Prolog.
 
@@ -38,4 +35,6 @@ Ends with warnings:
 
   ./run.pl
     ?- cpack_install('amalgame').
+
+Invoke http://localhost:3020 and set password for 'admin'.
 
