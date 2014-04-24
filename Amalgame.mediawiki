@@ -37,7 +37,7 @@ Ends with warnings:
 
 ====CentOS 5.x====
 
-Did not work - see http://www.swi-prolog.org/bugzilla/show_bug.cgi?id=76
+Did not work - see http://www.swi-prolog.org/bugzilla/show_bug.cgi?id=76 (for CentOS 5.10 and SWI-Prolog 6.6.5, too).
 
 ===Install ClioPatria and Amalgame===
 
