@@ -50,3 +50,15 @@ Did not work - see http://www.swi-prolog.org/bugzilla/show_bug.cgi?id=76 (for Ce
 
 Invoke http://localhost:3020 and set password for 'admin'.
 
+===Set up Apache proxy===
+
+Add to ClioPartria/settings.db:
+
+  %       Prefix for all locations of this server
+  setting(http:prefix, '/amalgame').
+
+Create /etc/httpd/conf.d/amalgame.conf
+
+  ProxyPass /amalgame http://127.0.0.1:3020/amalgame
+  ProxyPassReverse /amalgame http://127.0.0.1:3020/amalgame
+
