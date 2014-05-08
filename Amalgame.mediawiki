@@ -1,5 +1,12 @@
 ==Setup==
 
+===Register namespaces===
+
+On the prolog command line:
+
+ rdf_register_prefix('zbwext', 'http://zbw.eu/namespaces/zbw-extensions/').
+ rdf_register_prefix('sdmx', 'http://purl.org/linked-data/sdmx#').
+
 ===Vocabularies with hash URIs===
 
 For vocabularies with hash URIs, the SKOS browser does not work correctly. As a workarround, replace '#' with '/' within the URI.
