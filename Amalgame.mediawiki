@@ -50,7 +50,7 @@ Did not work - see http://www.swi-prolog.org/bugzilla/show_bug.cgi?id=76 (for Ce
 
 Invoke http://localhost:3020 and set password for 'admin'.
 
-===Set up Apache proxy===
+===Set up Apache reverse proxy===
 
 Add to ClioPartria/settings.db:
 
