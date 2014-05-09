@@ -11,7 +11,7 @@ On the prolog command line:
 
 Amalgame needs them to know which resources are part of a scheme.
 
-  /* add top concepts to scheme */
+  /* add top concepts to scheme
   findall(S-T,
     rdf(S,skos:hasTopConcept,T),
     Triples),
@@ -19,8 +19,8 @@ Amalgame needs them to know which resources are part of a scheme.
     rdf_assert(T,skos:inScheme,'http://purl.org/linked-data/sdmx/2009/subject#subjectMatterDomain')
   ).
   
-  /* add concepts to scheme, which have broader concepts in scheme */
-  /* (not transitive - repeat!) */
+  /* add concepts to scheme, which have broader concepts in scheme
+  /* (not transitive - repeat!)
   findall(N-B,
     (rdf(N,skos:broader,B),
     rdf(B,skos:inScheme,'http://purl.org/linked-data/sdmx/2009/subject#subjectMatterDomain')),
