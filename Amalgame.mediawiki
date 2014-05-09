@@ -30,7 +30,6 @@ Amalgame needs them to know which resources are part of a scheme.
     rdf_assert(N,skos:inScheme,'http://purl.org/linked-data/sdmx/2009/subject#subjectMatterDomain')
   ).  
 
-
 ==Installation on Redhat/CentOS==
 
 Amalgame is based on ClioPatria, which is requires the latest version of SWI-Prolog.
