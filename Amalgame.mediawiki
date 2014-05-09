@@ -6,9 +6,10 @@ On the prolog command line:
 
   rdf_register_prefix('zbwext', 'http://zbw.eu/namespaces/zbw-extensions/').
   rdf_register_prefix('sdmx-subject', 'http://purl.org/linked-data/sdmx/2009/subject#').
-===Vocabularies with hash URIs===
 
-For vocabularies with hash URIs, the SKOS browser does not work correctly. As a workarround, replace '#' with '/' within the URI.
+===Add missing skos:inScheme properties===
+
+Amalgame needs them to know which resources are part of a scheme.
 
 ==Installation on Redhat/CentOS==
 
@@ -52,4 +53,9 @@ Create /etc/httpd/conf.d/amalgame.conf
 
   ProxyPass /amalgame http://127.0.0.1:3020/amalgame
   ProxyPassReverse /amalgame http://127.0.0.1:3020/amalgame
+
+===Upgrade a package===
+
+  ?- cpack_upgrade(skos_browser).
+  ?- make.
 
