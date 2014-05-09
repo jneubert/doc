@@ -11,23 +11,25 @@ On the prolog command line:
 
 Amalgame needs them to know which resources are part of a scheme.
  
+  
   /* add top concepts to scheme */
-  findall(S-T,
-    rdf(S,skos:hasTopConcept,T),
+  findall(T,
+    rdf('sdmx-subject':subjectMatterDomain, skos:hasTopConcept, T),
     Triples),
-  forall(member(S-T, Triples),
-    rdf_assert(T,skos:inScheme,'http://purl.org/linked-data/sdmx/2009/subject#subjectMatterDomain')
+  forall(member(T, Triples),
+    rdf_assert(T, skos:inScheme, 'sdmx-subject':subjectMatterDomain)
   ).
   
   /* add concepts to scheme, which have broader concepts in scheme */
   /* (not transitive - repeat!) */
   findall(N-B,
-    (rdf(N,skos:broader,B),
-    rdf(B,skos:inScheme,'http://purl.org/linked-data/sdmx/2009/subject#subjectMatterDomain')),
+    ( rdf(N,skos:broader,B),
+      rdf(B,skos:inScheme,'sdmx-subject':subjectMatterDomain)
+    ),
     Triples
   ),
   forall(member(N-B, Triples),
-    rdf_assert(N,skos:inScheme,'http://purl.org/linked-data/sdmx/2009/subject#subjectMatterDomain')
+    rdf_assert(N,skos:inScheme,'sdmx-subject':subjectMatterDomain)
   ).  
 
 ==Installation on Redhat/CentOS==
