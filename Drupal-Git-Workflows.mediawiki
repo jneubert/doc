@@ -13,7 +13,7 @@ Um nur den Branch 7.x zu tracken:
 ===Vendor Update Drupal Core===
 
   git checkout labs   # um sicherzugehen, dass ich auf dem Masterbranch bin
-  git fetch -v drupal
+  git fetch -v drupal 7.x
   git tag   # Drupal-Versionstag identifizieren, z.B. "7.12"
   # Commit mit generierter Message erzwingen
   git merge --log --no-ff 7.12 -m "Issue LABS-23: Merge Drupal 7.12"
