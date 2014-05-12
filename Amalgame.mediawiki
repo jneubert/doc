@@ -1,3 +1,5 @@
+see https://github.com/jrvosse/amalgame
+
 ==Setup==
 
 ===Register namespaces===
