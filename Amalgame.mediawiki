@@ -1,4 +1,5 @@
-see https://github.com/jrvosse/amalgame
+Amalgame: a SKOS vocabulary alignment tool http://semanticweb.cs.vu.nl/amalgame/
+Code https://github.com/jrvosse/amalgame
 
 ==Setup==
 
