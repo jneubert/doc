@@ -70,12 +70,12 @@ Invoke http://localhost:3020 and set password for 'admin'.
 
 ===Set up Apache reverse proxy===
 
-Add to ClioPartria/settings.db:
+Add to <tt>ClioPartria/settings.db</tt>:
 
   %       Prefix for all locations of this server
   setting(http:prefix, '/amalgame').
 
-Create /etc/httpd/conf.d/amalgame.conf
+Create <tt>/etc/httpd/conf.d/amalgame.conf</tt>
 
   ProxyPass /amalgame http://127.0.0.1:3020/amalgame
   ProxyPassReverse /amalgame http://127.0.0.1:3020/amalgame
@@ -95,6 +95,6 @@ Workarround: Replace with <tt>log_success_msg</tt> and <tt>log_failure_msg</tt>.
 
 ==Weblinks==
 
-* Video: http://vimeo.com/23420503
-* Overview, terminology: https://github.com/jrvosse/amalgame/blob/master/README.md
-* Code: https://github.com/jrvosse/amalgame
+* [http://vimeo.com/23420503 Video tutorial]
+* [https://github.com/jrvosse/amalgame/blob/master/README.md Overview, terminology]
+* [https://github.com/jrvosse/amalgame Code]
