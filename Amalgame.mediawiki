@@ -86,6 +86,10 @@ Cliopatria <tt>debian-init-script</tt> requires the functions <tt>log_daemon_msg
 
 Workarround: Replace with <tt>log_success_msg</tt> and <tt>log_failure_msg</tt>.
 
+===Permissions===
+
+Write permission to <tt>Cliopatria/RDF-store</tt> (and below) must be granted to the user referenced in the startup script.
+
 ==Maintenance==
 
 ===Upgrade a package===
