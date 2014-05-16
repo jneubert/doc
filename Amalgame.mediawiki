@@ -1,5 +1,4 @@
 Amalgame: a SKOS vocabulary alignment tool http://semanticweb.cs.vu.nl/amalgame/
-Code https://github.com/jrvosse/amalgame
 
 ==Setup==
 
@@ -43,7 +42,10 @@ Amalgame is based on ClioPatria, which is requires the latest version of SWI-Pro
 
 ====SWI-Prolog 6.6.5 on CentOS 6.5====
 
-1) Install dependencies as indicated in http://www.swi-prolog.org/build/Redhat.html (+ gcc + graphviz)
+1) Install dependencies as indicated in http://www.swi-prolog.org/build/Redhat.html, '''plus'''
+  gcc 
+  graphviz # (optional, for graphics)
+  redhat-lsb # (optional, for system startup script)
 
 2) Follow http://www.swi-prolog.org/build/unix.html
 
@@ -78,8 +80,21 @@ Create /etc/httpd/conf.d/amalgame.conf
   ProxyPass /amalgame http://127.0.0.1:3020/amalgame
   ProxyPassReverse /amalgame http://127.0.0.1:3020/amalgame
 
+===Startup script===
+
+Cliopatria <tt>debian-init-script</tt> requires the functions <tt>log_daemon_msg</tt> and <tt>log_end_msg</tt>, which are not available in RH/Centos 6.5 lsb packages (and not defined in [http://refspecs.linuxbase.org/LSB_4.1.0/LSB-Core-generic/LSB-Core-generic/iniscrptfunc.html LSB 4.1]).
+
+Workarround: Replace with <tt>log_success_msg</tt> and <tt>log_failure_msg</tt>.
+
+==Maintenance==
+
 ===Upgrade a package===
 
   ?- cpack_upgrade(skos_browser).
   ?- make.
 
+==Weblinks==
+
+* Video: http://vimeo.com/23420503
+* Overview, terminology: https://github.com/jrvosse/amalgame/blob/master/README.md
+* Code: https://github.com/jrvosse/amalgame
