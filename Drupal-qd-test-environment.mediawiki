@@ -1,30 +1,11 @@
-Sets up very quickly a test environment with a local web server, which seems to be adressable only locally.
+Sets up very quickly a test environment with a web server.
 
-Therefore, set up a reverse proxy:
+Directory for install: <tt>/tmp/dummy</tt>. SQLite database <tt>/tmp/dummy.sqlite</tt>
 
-File /etc/httpd/conf.d/drupal-qd.conf
-  <Location /qd>
-    ProxyPass http://127.0.0.1:8888
-    ProxyPassReverse http://127.0.0.1:8888
-  </Location>
+Install with projects (enables modules with the same name):
 
-Installing a new environment:
+  drush -y qd --no-server --root=/tmp/dummy dummy taxonomy uuid entity deploy features --account-pass=secret
 
-  # set up
-  cd /tmp
-  drush -y qd
-  # abort server
-  
-  cd /tmp/quick-drupal-{timestamp}/drupal
-  vi sites/default/settings.php
-  
-    $base_url = 'http://nbt1/qd'
-    $conf['reverse_proxy'] = TRUE;
-    $conf['reverse_proxy_addresses'] = array('127.0.0.1');
+Run server on an accessible IP (without starting a browser):
 
-Starting up:
-
-  cd /tmp/quick-drupal-{timestamp}/drupal
-  drush rs
-
-'''Doesn't work anyway - form buttons are not prefixed with the path from $base_url.'''
+  drush --root=/tmp/dummy rs 192.168.56.12:8888  - 
