@@ -6,10 +6,11 @@ Install with projects (enables modules with the same name):
 
   drush -y qd dummy  \
     uuid entity deploy features  \
-    --no-server --root=/tmp/dummy  \
+    --root=/tmp/dummy  \
+    --no-server  \
     --account-pass=secret
 
-(The <tt>--enable=</tt> seems to prevent execution of dependency checking.)
+(The <tt>--enable=</tt> parameter is not used because seems to prevent execution of dependency checking.)
 
 Run server on an IP acessible from outside (without starting a browser locally):
 
