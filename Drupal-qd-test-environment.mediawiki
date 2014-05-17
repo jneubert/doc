@@ -9,7 +9,7 @@ Install with projects (enables modules with the same name):
     --no-server --root=/tmp/dummy  \
     --account-pass=secret
 
-(The <tt>--enable=<Ttt> seems to prevent execution of dependency checking.)
+(The <tt>--enable=</tt> seems to prevent execution of dependency checking.)
 
 Run server on an IP acessible from outside (without starting a browser locally):
 
