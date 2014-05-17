@@ -1,12 +1,12 @@
 Sets up very quickly a test environment with a web server.
 
-Directory for install: <tt>/tmp/dummy</tt>. SQLite database <tt>/tmp/dummy.sqlite</tt>
+Directory for install: <tt>/tmp/drupal_qd</tt>. SQLite database <tt>/tmp/drupal_qd.sqlite</tt>
 
 Install with projects (enables modules with the same name):
 
-  drush -y qd dummy  \
+  drush -y qd drupal  \
     uuid entity deploy features  \
-    --root=/tmp/dummy  \
+    --root=/tmp/drupal_qd/drupal  \
     --no-server  \
     --account-pass=secret
 
@@ -14,4 +14,4 @@ Install with projects (enables modules with the same name):
 
 Run server on an IP acessible from outside (without starting a browser locally):
 
-  drush --root=/tmp/dummy rs 192.168.56.12:8888  - 
+  drush --root=/tmp/drupal_qd/drupal rs 192.168.56.12:8888  - 
