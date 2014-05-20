@@ -90,8 +90,9 @@ Workarround: Replace with <tt>log_success_msg</tt> and <tt>log_failure_msg</tt>.
 
 Write permission must be granted to the user referenced in the startup script for the following subtrees:
 
-  Cliopatria/RDF-store
-  Cliopatria/cpack/amalgame/web/alignment_results
+  ClioPatria/RDF-store
+  ClioPatria/cpack/amalgame/web/alignment_results
+  ClioPatria/*.db
 
 ==Maintenance==
 
