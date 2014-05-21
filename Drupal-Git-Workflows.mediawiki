@@ -134,23 +134,21 @@ s. a. [https://drupal.org/patch/apply Applying patches]
 ====auf QA====
 
 * ggf. händische Sicherung mit 'backup_drupal.sh'
-* Update aus dem Repository automatisiert
-
+* ggf. Daten komplett neu von PROD übernehmen:
+  recreate_qalabs.sh
+* Update aus dem Repository automatisiert:
   update_drupal_inst.sh qalabs
-
 * anhand von Jira die relevanten Issues holen und abarbeiten
 * testen ...
 * Issues auf resolved setzen
 * ''keine Code- oder Konfigurationsänderung auf QA!'' (ggf. Zyklus von DEV aus wiederholen)
-* immer
 
 ====auf QALIVE====
 
 * ggf. händische Sicherung mit 'backup_drupal.sh'
+* ggf. neu von LIVE übernehmen (wie???)
 * Update aus dem Repository automatisiert
-
   update_drupal_inst.sh qalivelabs
-
 * mindestens ein Deployment testen
 * ggf. weitere Issue-spezifische Deployment Tests
 
