@@ -101,6 +101,12 @@ Write permission must be granted to the user referenced in the startup script fo
   ?- cpack_upgrade(skos_browser).
   ?- make.
 
+===Clean up graphs===
+
+  ?- make.
+
+Cleans up generated named graphs from intermediary results (+ cache).
+
 ==Weblinks==
 
 * [http://vimeo.com/23420503 Video tutorial]
