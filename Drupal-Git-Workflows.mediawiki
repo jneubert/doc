@@ -24,8 +24,9 @@ Um nur den Branch 7.x zu tracken:
   drush l10n-update
 
   # zurück ins Repository
-  git push
-  git push --tags
+  git push origin labs
+  
+ggf. auch: git push --tags
 
 ===Vendor Update Drupal Modules===
 
