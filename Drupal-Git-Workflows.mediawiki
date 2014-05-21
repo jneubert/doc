@@ -157,7 +157,7 @@ s. a. [https://drupal.org/patch/apply Applying patches]
 * in Git taggen (auf DEV, nicht QA - dort kann es unsinnige Merges geben)
 
   git tag -a 7.x-1.5 -m "7.x-1.5"
-  git push --tags
+  git push origin 7.x-1.5
 
 ===Deployment in Produktion===
 
