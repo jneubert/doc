@@ -9,7 +9,7 @@
 ;mk_drupal_base_inst.sh &lt;instance&gt;
 :creates a drupal instance from a default installations saved filesystem and db
 
-;update_drupal_inst.sh &lt;instance&gt; [--branch &lt;branch&gt;] [&lt;tag&gt;]
+;update_drupal_inst.sh &lt;instance&gt; [--branch &lt;branchname&gt;] [&lt;tag&gt;]
 :Update a drupal instance from git
 
 ;mk_labs_testinst.sh &lt;instance&gt;
