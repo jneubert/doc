@@ -4,19 +4,19 @@
 :backup drupal installation and database
 
 ;reset_drupal.sh
-:Reset drupal instance to prior code and db state (edit and insert instance + backup directory to restore)
+:Reset drupal instance to prior code and db state (edit and insert instance + backup directory to restore).
 
 ;mk_drupal_base_inst.sh &lt;instance&gt;
 :creates a drupal instance from a default installations saved filesystem and db
 
-;update_drupal_inst.sh <nowiki><instance> [<tag>] [--branch <branch>]</nowiki>
-:Update a drupal instance from git
+;update_drupal_inst.sh <nowiki><instance> [--branch <branch>] [<tag>]</nowiki>
+:Update a drupal instance from git master branch (default), specified branch or tag.
 
 ;mk_labs_testinst.sh &lt;instance&gt;
-:creates a NEW development/test instance for cms drupal application from site alias (directory must be empty, database gets created/OVERRIDDEN)
+:Creates a NEW development/test instance for cms drupal application from site alias (directory must be empty, database gets created/OVERRIDDEN).
 
 ;recreate_drupal_dev.sh
-:copies (OVERRIDES) the drupal filesystem and database from the @prod to the @dev instance (uses drush aliases)
+:Copies (OVERRIDES) the drupal filesystem and database from the @prod to the @dev instance (uses drush aliases)
 
 
 ==Drupal quick&amp;dirty test environment==
