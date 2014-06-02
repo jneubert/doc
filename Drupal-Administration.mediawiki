@@ -1,17 +1,23 @@
-==Prozeduren==
+==Maintenance scripts==
 
-;backup_drupal.sh
+;backup_drupal.sh &lt;instance&gt; ["comment"]
 :backup drupal installation and database
+
 ;reset_drupal.sh
-:Reset drupal instance to prior code and db state
-;mk_drupal_base_inst.sh
+:Reset drupal instance to prior code and db state (edit and insert instance + backup directory to restore)
+
+;mk_drupal_base_inst.sh &lt;instance&gt;
 :creates a drupal instance from a default installations saved filesystem and db
-;update_drupal_inst.sh
+
+;update_drupal_inst.sh &lt;instance&gt; [--branch &lt;branch&gt;] [&lt;tag&gt;]
 :Update a drupal instance from git
-;mk_labs_testinst.sh
+
+;mk_labs_testinst.sh &lt;instance&gt;
 :creates a NEW development/test instance for cms drupal application from site alias (directory must be empty, database gets created/OVERRIDDEN)
+
 ;recreate_drupal_dev.sh
 :copies (OVERRIDES) the drupal filesystem and database from the @prod to the @dev instance (uses drush aliases)
+
 
 ==Drupal quick&amp;dirty test environment==
 
@@ -33,6 +39,7 @@ Run server on an IP acessible from outside (without starting a browser locally):
 
   drush --root=/tmp/drupal_qd/drupal rs 192.168.56.12:8888  -
 
+
 ==Konfiguration Mehrsprachigkeit==
 
 für den Entity Translation Ansatz:
@@ -49,6 +56,7 @@ für den Entity Translation Ansatz:
 ===Benutzersprache===
 
 default auf (angezeigt) "Englisch" stehen lassen reicht nicht, man muss die Sprache einmal explizit speichern
+
 
 ==div==
 
