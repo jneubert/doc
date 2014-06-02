@@ -1,13 +1,13 @@
 ==Maintenance scripts==
 
 ;backup_drupal.sh &lt;instance&gt; ["comment"]
-:backup drupal installation and database
+:Backup drupal installation and database.
 
 ;reset_drupal.sh
 :Reset drupal instance to prior code and db state (edit and insert instance + backup directory to restore).
 
 ;mk_drupal_base_inst.sh &lt;instance&gt;
-:creates a drupal instance from a default installations saved filesystem and db
+:Creates a drupal instance from a default installations saved filesystem and db.
 
 ;update_drupal_inst.sh <nowiki><instance> [--branch <branch>] [<tag>]</nowiki>
 :Update a drupal instance from git master branch (default), specified branch or tag.
