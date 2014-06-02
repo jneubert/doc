@@ -13,6 +13,26 @@
 ;recreate_drupal_dev.sh
 :copies (OVERRIDES) the drupal filesystem and database from the @prod to the @dev instance (uses drush aliases)
 
+==Drupal quick&amp;dirty test environment==
+
+Sets up very quickly a plain Drupal test environment with an own web server.
+
+Directory for install: <tt>/tmp/drupal_qd/drupal</tt>. SQLite database <tt>/tmp/drupal_qd/drupal.sqlite</tt>
+
+Install with projects (enables modules with the same name):
+
+  drush -y qd drupal  \
+    uuid entity deploy features  \
+    --root=/tmp/drupal_qd/drupal  \
+    --no-server  \
+    --account-pass=secret
+
+(The <tt>--enable</tt> parameter is not used because seems to prevent execution of dependency checking.)
+
+Run server on an IP acessible from outside (without starting a browser locally):
+
+  drush --root=/tmp/drupal_qd/drupal rs 192.168.56.12:8888  -
+
 ==Konfiguration Mehrsprachigkeit==
 
 für den Entity Translation Ansatz:
