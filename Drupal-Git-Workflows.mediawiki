@@ -108,7 +108,7 @@ s. a. [https://drupal.org/node/707484 Making a Drupal patch with Git]
 * Datei(en) ändern
 * Patch-Datei erstellen
 
-  git diff > [project_name]-[short-description]-[issue-number]-[comment-number].patch
+  git diff --relative > [project_name]-[short-description]-[issue-number]-[comment-number].patch
 
 ====Patch anwenden====
 
