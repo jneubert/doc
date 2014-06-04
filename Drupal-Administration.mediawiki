@@ -67,6 +67,10 @@ Selected components:
 
 The feature(s), which provide a component already, are indicated.
 
+===Further drush commands===
+
+Drupal.org [Features &amp; Drush](https://drupal.org/node/960926)
+
 
 ==Konfiguration Mehrsprachigkeit==
 
