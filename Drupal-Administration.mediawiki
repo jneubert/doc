@@ -65,7 +65,7 @@ Selected components:
   drush fc 'variable:*'
   drush fc '*:*labs*'
 
-The module(s) which provide a compenent already are indicated.
+The feature(s), which provide a compenent already, are indicated.
 
 
 ==Konfiguration Mehrsprachigkeit==
