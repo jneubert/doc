@@ -40,6 +40,21 @@ Run server on an IP acessible from outside (without starting a browser locally):
   drush --root=/tmp/drupal_qd/drupal rs 192.168.56.12:8888  -
 
 
+==Features==
+
+Setting a version number and incrementing it can be done easily.
+
+===Create a feature via drush===
+
+Export an arbitrary component (e.g., dependencies:rdfx)
+
+  drush fe labs --destination=sites/all/modules/custom --version-set=7.x-1.0 dependencies:rdfx
+
+===Add a component to a feature via drush===
+
+  drush fe labs --version-increment dependencies:uuid
+
+
 ==Konfiguration Mehrsprachigkeit==
 
 für den Entity Translation Ansatz:
