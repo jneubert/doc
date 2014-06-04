@@ -42,7 +42,7 @@ Run server on an IP acessible from outside (without starting a browser locally):
 
 ==Features==
 
-Setting a version number and incrementing it can be done easily.
+Features can managed almost entirely via drush. Setting a version number and incrementing it can be done easily.
 
 ===Create a feature via drush===
 
@@ -53,6 +53,19 @@ Export an arbitrary component (e.g., dependencies:rdfx)
 ===Add a component to a feature via drush===
 
   drush fe labs --version-increment dependencies:uuid
+
+===Display available components===
+
+All components:
+
+  drush fc '*'
+
+Selected components:
+
+  drush fc 'variable:*'
+  drush fc '*:*labs*'
+
+The module(s) which provide a compenent already are indicated.
 
 
 ==Konfiguration Mehrsprachigkeit==
