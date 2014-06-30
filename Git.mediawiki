@@ -168,16 +168,22 @@ s.: [[Drupal Git Workflows]]
 
 ==Überführen eines bestehenden SVN-Repositories nach Git==
 
-1. Unter <code>/srv/git/</code> ein neues leeres Repository anlegen: <code>git init --bare --shared REPOSITORY.git</code>
+1. Unter <code>/srv/git/</code> ein neues leeres Repository anlegen:
+
+  git init --bare --shared REPOSITORY.git
 
 2. Ins eigene home Verzeichnis wechseln.
 
 3. Wenn das SVN Repository die Standardstruktur mit den Ordnern <code>trunk, tag und branch</code> besitzt lautet der Befehl zum Übertragen wie folgt:
- git svn clone --trunk=trunk --tags=tag --branches=branch --repack http://ite-svn/repos/ite/REPOSITORY
+
+  git svn clone --trunk=trunk --tags=tag --branches=branch --repack http://ite-svn/repos/ite/REPOSITORY
+
 4. Ins frisch ausgecheckte Repository wechseln <code>cd REPOSITORY</code>
 
 5. und mit 
- git push --mirror /srv/git/REPOSITORY.git/
+
+git push --mirror /srv/git/REPOSITORY.git/
+
 ins zentrale Repository senden.
 
 6. Das temporär im eigenen home Verzeichnis angelegte Repository kann jetzt gelöscht werden.
