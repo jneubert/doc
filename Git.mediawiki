@@ -115,6 +115,7 @@ Der [http://schacon.github.com/git/gitcvs-migration.html gitcvs-migration Guide]
 
 Im propagierten Workflow hat jeder Entwickler ein ''public'' Repository und es gibt einen Maintainer, der alle Änderungen begutachtet und zusammenführt, und in ein ''primary public'' Repository comitted.
 
+
 ==Individuelle Konfiguration==
 
 ===Userspezifisches===
@@ -135,6 +136,7 @@ Ein globales .gitignore-File kann mit
   git config --global core.excludesfile ~/.gitignore
 
 verlinkt werden. Zusätzlich können projektspezfische .gitignores eingebunden werden.
+
 
 ==Arbeiten mit "Vendor Branches"==
 
@@ -166,7 +168,10 @@ s.: [[Drupal Git Workflows]]
     
     /etc/init.d/fuseki start
 
+
 ==Überführen eines bestehenden SVN-Repositories nach Git==
+
+'''''Z.T. überholt'''''
 
 1. Unter <code>/srv/git/</code> ein neues leeres Repository anlegen:
 
@@ -182,11 +187,12 @@ s.: [[Drupal Git Workflows]]
 
 5. und mit 
 
-git push --mirror /srv/git/REPOSITORY.git/
+  git push --mirror /srv/git/REPOSITORY.git/
 
 ins zentrale Repository senden.
 
 6. Das temporär im eigenen home Verzeichnis angelegte Repository kann jetzt gelöscht werden.
+
 
 ==diverse Fehlermeldungen==
 
