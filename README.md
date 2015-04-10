@@ -1,1 +1,1 @@
-Just a view doc pages
+Just a view doc pages in the wiki
